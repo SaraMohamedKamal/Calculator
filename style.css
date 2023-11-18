@@ -1,0 +1,189 @@
+/* The * selector selects all elements in the document. The padding, margin, box-sizing, outline,
+ and transition properties are set to 0 for all elements. This ensures that all elements have consistent styling.
+
+The .container selector selects the element with the class container. The height, width, display, place-items,
+and justify-content properties are set for the container element. This centers the calculator in the viewport.
+The .calculator selector selects the element with the class calculator. The position, height, width, padding, border-radius,
+ box-shadow, and background-color properties are set for the calculator element. This creates a rounded rectangle with a drop shadow.
+The .theme-toggler selector selects the element with the class theme-toggler. The position, top, right, color, cursor, 
+and z-index properties are set for the theme-toggler element.
+ This positions the theme toggle button in the top right corner of the calculator and sets its cursor to pointer.
+
+
+The .theme-toggler.active selector selects the theme-toggler element when it has the active class. 
+The color property is set for the theme-toggler element when it has the active class.
+ This changes the color of the theme toggle button when it is active.
+
+
+The .theme-toggler::before selector selects the pseudo-element before the theme-toggler element. The content, height, width, position,
+ top, transform, border-radius, background-color, and z-index properties are set for the pseudo-element. 
+ This creates a circular background for the theme toggle button.*/
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    transition: all 0.9s ease;
+}
+
+body {
+    font-family: sans-serif;
+    background-image: linear-gradient(to bottom right, rgb(0, 4, 17), rgb(144, 123, 235));
+}
+
+.container {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    place-items: center;
+}
+
+.calculator {
+    position: relative;
+    height: auto;
+    width: auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 30px #000;
+}
+
+
+/* Button of dark mode */
+
+.theme-toggler {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    color: #fff;
+    cursor: pointer;
+    z-index: 11;
+}
+
+.theme-toggler.active {
+    color: #333;
+}
+
+.theme-toggler.active::before {
+    background-color: #fff;
+}
+
+.theme-toggler::before {
+    content: '';
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background-color: #333;
+    z-index: -1;
+}
+
+
+/*The #display selector selects the element with the id display. The margin, height, width, 
+max-width, display, align-items, justify-content, font-size, margin-bottom, and overflow-x properties are set for the display element.
+ This creates a multi-line display for the calculator.
+The #display::-webkit-scrollbar selector selects the scrollbar for the display element. The display, height, 
+and width properties are set for the scrollbar. This shows the scrollbar for the display element.
+The button selector selects all button elements. The height, width, border, border-radius, margin, font-size, cursor, and transition properties are set for all button elements. This creates rounded buttons with a cursor of pointer.
+The button:hover selector selects all button elements when they are being hovered over. The transform property is set for button elements when they are being hovered over. This scales the button elements up by 110% when they are being hovered over.
+The button#equal selector selects the button element with the id equal. The height property is set for the button element with the id equal. This makes the equal button taller than the other buttons.
+The .calculator selector is used again to set the background color for the calculator element when it does not have the dark class. 
+The background color is set to #fff (white).
+The .calculator #display selector selects the display element when it is a descendant of the calculator element 
+that does not have the dark class. The color property is set for the display element. 
+This sets the text color of the display element to #0a1e23 (dark gray).
+The .calculator button#clear selector selects */
+
+#display {
+    margin: 0 10px;
+    height: 150px;
+    width: auto;
+    max-width: 270px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    font-size: 30px;
+    margin-bottom: 20px;
+    overflow-x: scroll;
+}
+
+#display::-webkit-scrollbar {
+    display: block;
+    height: 3px;
+}
+
+button {
+    height: 60px;
+    width: 60px;
+    border: 0;
+    border-radius: 30px;
+    margin: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 200ms ease;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+button#equal {
+    height: 130px;
+}
+
+.calculator {
+    background-color: #fff;
+}
+
+.calculator #display {
+    color: #0a1e23;
+}
+
+.calculator button#clear {
+    background-color: #f5a2a7;
+    color: #fc4552;
+}
+
+.calculator button.btn-number {
+    background-color: #a098cc;
+    color: #fff;
+}
+
+.calculator button.btn-operator {
+    background-color: #be9cbd;
+    color: #fff;
+}
+
+.calculator button.btn-equal {
+    background-color: #cb99e9;
+    color: #fff;
+}
+
+.calculator.dark {
+    background-color: #071115;
+}
+
+.calculator.dark #display {
+    color: #f8fafd;
+}
+
+.calculator.dark button#clear {
+    background-color: #2d191e;
+    color: #bd3740;
+}
+
+.calculator.dark button.btn-number {
+    background-color: #1b2f38;
+    color: #f8fafb;
+}
+
+.calculator.dark button.btn-operator {
+    background-color: #2e1f39;
+    color: #aa00a4;
+}
+
+.calculator.dark button.btn-equal {
+    background-color: #4d0280;
+    color: #ffffff;
+}
